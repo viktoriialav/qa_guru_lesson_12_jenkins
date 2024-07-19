@@ -9,7 +9,7 @@ import tests
 
 
 @allure.title('Successful fill form')
-def test_demoqa_student_registration_form(setup_browser):
+def test_demoqa_student_registration_form():
     first_name = 'Viktoriia'
     last_name = 'Lav'
     user_email = 'newuser@gmail.com'
