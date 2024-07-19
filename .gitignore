@@ -1,5 +1,6 @@
 # User-specific stuff
 comments.txt
+.env
 
 # JetBrains
 .idea/
