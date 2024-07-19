@@ -6,18 +6,22 @@ from selene import browser
 
 from utils import attach
 
+DEFAULT_BROWSER_VERSION = '100.0'
+
+
 def pytest_addoption(parser):
     parser.addoption(
         '--browser_version',
         help='Browser version for all tests',
         choices=['99.0', '100.0', '120.0', '121.0', '122.0'],
-        default='100.0'
+        default=DEFAULT_BROWSER_VERSION
     )
 
 
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser(request):
     browser_version = request.config.getoption('--browser_version')
+    browser_version = browser_version if browser_version != '' else DEFAULT_BROWSER_VERSION
     browser.config.base_url = 'https://demoqa.com'
     browser.config.window_width = 1920
     browser.config.window_height = 1080
